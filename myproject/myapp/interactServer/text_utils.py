@@ -10,8 +10,7 @@ def remove_line_breaks(text):
 
     return text
 
-def setClipboard(request):
-    data = request.GET.get("answer","")
-    pyperclip.copy(data)
+def setClipboard(answer):
+    pyperclip.copy(answer)
     print("Data copied to clipboard.")
     

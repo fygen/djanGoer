@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 import os
-import pyperclip
+from django.http import JsonResponse
 from datetime import datetime
 from PIL import Image
 import pytesseract
@@ -19,6 +19,7 @@ def take_screen_and_get_text(request):
     lang = request.GET.get('language', 'eng')
     answer = request.GET.get('answer', "")
     if(len(answer)):
+        print(answer)
         setClipboard(answer)
     # left = int(request.GET.get('left', 0))
     # top = int(request.GET.get('top', 0))
@@ -54,4 +55,3 @@ def take_screen_and_get_text(request):
 
     # Return the extracted text as a JSON response
     return render(request, 'screenshot.html', context)
-
